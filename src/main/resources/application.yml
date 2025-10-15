@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: jg-backend
+  datasource:
+    url: jdbc:h2:mem:jg-db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+  jpa:
+    hibernate:
+      ddl-auto: create # or create, create-drop
+    show-sql: true # Optional: to see the generated SQL in the console
+    properties:
+      hibernate:
+      format_sql: true # Optional: to format the generated SQL
+    defer-datasource-initialization: true

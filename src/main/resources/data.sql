@@ -1,0 +1,2 @@
+INSERT INTO USUARIO (nombre, apellido, nombre_de_usuario, email, contrasenia) VALUES ('Brayan', 'Guerrero', 'bguerrero', 'brayan.gd08@gmail.com', 'jg_2025');
+INSERT INTO USUARIO (nombre, apellido, nombre_de_usuario, email, contrasenia) VALUES ('Yeimy', 'Jaramillo', 'yjaramillo', 'yeimy1jaramillo@gmail.com', 'jg_2025');
