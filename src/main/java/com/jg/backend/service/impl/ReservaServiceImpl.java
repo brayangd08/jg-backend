@@ -1,22 +1,23 @@
 package com.jg.backend.service.impl;
 
-import com.jg.backend.domain.dto.CreateReserva;
+import com.jg.backend.domain.dto.CreateReservaRequest;
 import com.jg.backend.domain.entity.Reserva;
+import com.jg.backend.domain.entity.Servicio;
 import com.jg.backend.exception.JgNotFoundException;
 import com.jg.backend.repository.ReservaRepository;
+import com.jg.backend.repository.ServicioRepository;
 import com.jg.backend.service.ReservaService;
 import lombok.AllArgsConstructor;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
 public class ReservaServiceImpl implements ReservaService {
 
     private ReservaRepository reservaRepository;
+    private ServicioRepository servicioRepository;
 
     @Override
     public List<Reserva> getReservas() {
@@ -29,12 +30,25 @@ public class ReservaServiceImpl implements ReservaService {
     }
 
     @Override
-    public Reserva createReserva(CreateReserva createReserva) {
-        return null;
+    public Reserva createReserva(CreateReservaRequest createReservaRequest) {
+        Reserva reserva = createReservaRequestToReserva(createReservaRequest);
+
+        return reservaRepository.save(reserva);
+    }
+
+    private Reserva createReservaRequestToReserva(CreateReservaRequest createReservaRequest) {
+        List<Servicio> services = createReservaRequest.getServicioIds().stream()
+                .map(id -> servicioRepository.findById(id)
+                        .orElseThrow(() -> new JgNotFoundException("Service with id " + id + " not found")))
+                .toList();
+
+        return Reserva.builder()
+                .fecha(createReservaRequest.getFecha())
+                .servicios(services).build();
     }
 
     @Override
-    public Reserva updateReserva(CreateReserva createReserva) {
+    public Reserva updateReserva(CreateReservaRequest createReservaRequest) {
         return null;
     }
 

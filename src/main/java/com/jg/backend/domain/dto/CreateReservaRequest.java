@@ -1,22 +1,20 @@
 package com.jg.backend.domain.dto;
 
-import com.jg.backend.domain.entity.Servicio;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class CreateReserva {
+public class CreateReservaRequest {
 
     private LocalDateTime fecha;
-    private List<Servicio> servicios;
+    private List<Long> servicioIds;
 
 }
