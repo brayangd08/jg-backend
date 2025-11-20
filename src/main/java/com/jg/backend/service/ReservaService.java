@@ -10,7 +10,7 @@ public interface ReservaService {
     List<Reserva> getReservas();
     Reserva getReserva(Long id);
     Reserva createReserva(CreateReservaRequest createReservaRequest);
-    Reserva updateReserva(CreateReservaRequest createReservaRequest);
+    Reserva updateReserva(Long id, CreateReservaRequest createReservaRequest);
     void deleteReserva(Long id);
 
 }

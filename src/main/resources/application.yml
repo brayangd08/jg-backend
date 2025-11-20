@@ -14,3 +14,7 @@ spring:
       hibernate:
       format_sql: true # Optional: to format the generated SQL
     defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console

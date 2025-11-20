@@ -14,7 +14,9 @@ import java.util.List;
 @NoArgsConstructor
 public class CreateReservaRequest {
 
-    private LocalDateTime fecha;
+    private LocalDateTime fechaInicio;
+    private LocalDateTime fechaFin;
     private List<Long> servicioIds;
+    private List<CreateReservaProductoRequest> productos;
 
 }

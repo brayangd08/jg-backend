@@ -37,9 +37,9 @@ public class ReservaController {
         return reservaService.createReserva(createReservaRequest);
     }
 
-    @PutMapping
-    private Reserva updateReserva(@RequestBody CreateReservaRequest createReservaRequest) {
-        return reservaService.updateReserva(createReservaRequest);
+    @PutMapping("/{id}")
+    private Reserva updateReserva(@PathVariable Long id, @RequestBody CreateReservaRequest createReservaRequest) {
+        return reservaService.updateReserva(id, createReservaRequest);
     }
 
     @DeleteMapping("/{id}")
