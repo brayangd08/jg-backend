@@ -36,7 +36,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     private static Client createClientRequestToClient(CreateClientRequest createClientRequest) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate localDate = LocalDate.parse(createClientRequest.getDateBirth(), formatter);
 
         return Client.builder()
@@ -52,7 +52,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public Client updateClient(Long id, CreateClientRequest createClientRequest) {
         Client client = getClient(id);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate localDate = LocalDate.parse(createClientRequest.getDateBirth(), formatter);
 
         client.setName(createClientRequest.getName());

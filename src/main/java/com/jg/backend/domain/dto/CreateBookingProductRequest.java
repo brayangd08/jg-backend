@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateReservaProductRequest {
+public class CreateBookingProductRequest {
 
     private Long id;
-    private int cantidad;
+    private int amount;
 
 }

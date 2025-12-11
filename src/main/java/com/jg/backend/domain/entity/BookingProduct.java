@@ -14,20 +14,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-@Entity(name = "reserva_product")
-public class ReservaProduct {
+@Entity(name = "booking_product")
+public class BookingProduct {
 
     @EmbeddedId
-    private ReservaProductId id;
+    private BookingProductId id;
     @ManyToOne
-    @MapsId("reservaId") // Maps the bookId from the composite key
-    @JoinColumn(name = "reserva_id")
-    private Reserva reserva;
+    @MapsId("bookingId") // Maps the bookId from the composite key
+    @JoinColumn(name = "booking_id")
+    private Booking booking;
     @ManyToOne
     @MapsId("productId") // Maps the publisherId from the composite key
     @JoinColumn(name = "product_id")
     private Product product;
-    private int cantidad;
+    private int amount;
 
 
 }

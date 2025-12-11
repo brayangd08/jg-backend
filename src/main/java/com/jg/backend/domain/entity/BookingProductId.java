@@ -6,10 +6,10 @@ import jakarta.persistence.Embeddable;
 import java.io.Serializable;
 
 @Embeddable
-public class ReservaProductId implements Serializable {
+public class BookingProductId implements Serializable {
 
-    @Column(name = "reserva_id")
-    private Long reservaId;
+    @Column(name = "booking_id")
+    private Long bookingId;
 
     @Column(name = "product_id")
     private Long productId;

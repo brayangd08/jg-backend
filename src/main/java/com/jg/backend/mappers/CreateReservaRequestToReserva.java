@@ -1,7 +1,7 @@
 package com.jg.backend.mappers;
 
-import com.jg.backend.domain.dto.CreateReservaRequest;
-import com.jg.backend.domain.entity.Reserva;
+import com.jg.backend.domain.dto.CreateBookingRequest;
+import com.jg.backend.domain.entity.Booking;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
@@ -17,8 +17,8 @@ import java.util.UUID;
 public interface CreateReservaRequestToReserva {
 
     @Mapping(source = "fecha", target = "fecha")
-    @Mapping(source = "servicios", target = "servicios")
-    Reserva mapCreateReservaRequestToReserva(
-            CreateReservaRequest createReservaRequest);
+    @Mapping(source = "serviceJgs", target = "serviceJgs")
+    Booking mapCreateReservaRequestToReserva(
+            CreateBookingRequest createBookingRequest);
 
 }

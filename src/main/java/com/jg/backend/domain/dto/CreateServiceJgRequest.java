@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateServicioRequest {
+public class CreateServiceJgRequest {
 
-    private String nombre;
-    private String descripcion;
-    private double precio;
+    private String name;
+    private String description;
+    private double price;
 
 }
