@@ -17,6 +17,6 @@ public class CreateReservaRequest {
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;
     private List<Long> servicioIds;
-    private List<CreateReservaProductoRequest> productos;
+    private List<CreateReservaProductRequest> products;
 
 }

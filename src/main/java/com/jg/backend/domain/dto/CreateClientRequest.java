@@ -6,20 +6,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateClienteRequest {
+public class CreateClientRequest {
 
-    private String nombre;
-    private String apellido;
+    private String name;
+    private String lastName;
     private String email;
-    private int edad;
-    private LocalDate fechaNacimiento;
+    private int age;
+    private String dateBirth;
     @Column(unique = true)
-    private String cedula;
+    private String idCardNumber;
 
 }

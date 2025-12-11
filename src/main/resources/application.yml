@@ -8,7 +8,7 @@ spring:
     password: sa
   jpa:
     hibernate:
-      ddl-auto: create # or create, create-drop
+      ddl-auto: create-drop # or create, create-drop
     show-sql: true # Optional: to see the generated SQL in the console
     properties:
       hibernate:

@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateProductoRequest {
+public class CreateProductRequest {
 
-    private String nombre;
-    private String descripcion;
-    private double precio;
-    private int cantidad;
+    private String name;
+    private String description;
+    private double price;
+    private int amount;
 
 }

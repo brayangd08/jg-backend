@@ -14,19 +14,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-@Entity(name = "reserva_producto")
-public class ReservaProducto {
+@Entity(name = "reserva_product")
+public class ReservaProduct {
 
     @EmbeddedId
-    private ReservaProductoId id;
+    private ReservaProductId id;
     @ManyToOne
     @MapsId("reservaId") // Maps the bookId from the composite key
     @JoinColumn(name = "reserva_id")
     private Reserva reserva;
     @ManyToOne
-    @MapsId("productoId") // Maps the publisherId from the composite key
-    @JoinColumn(name = "producto_id")
-    private Producto producto;
+    @MapsId("productId") // Maps the publisherId from the composite key
+    @JoinColumn(name = "product_id")
+    private Product product;
     private int cantidad;
 
 

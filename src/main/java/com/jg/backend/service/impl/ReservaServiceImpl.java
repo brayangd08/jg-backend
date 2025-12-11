@@ -1,7 +1,7 @@
 package com.jg.backend.service.impl;
 
 import com.jg.backend.domain.dto.CreateReservaRequest;
-import com.jg.backend.domain.entity.Producto;
+import com.jg.backend.domain.entity.Product;
 import com.jg.backend.domain.entity.Reserva;
 import com.jg.backend.domain.entity.Servicio;
 import com.jg.backend.exception.JgBadRequestException;
@@ -9,7 +9,7 @@ import com.jg.backend.exception.JgConflictException;
 import com.jg.backend.exception.JgNotFoundException;
 import com.jg.backend.repository.ReservaRepository;
 import com.jg.backend.repository.ServicioRepository;
-import com.jg.backend.service.ProductoService;
+import com.jg.backend.service.ProductService;
 import com.jg.backend.service.ReservaService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class ReservaServiceImpl implements ReservaService {
 
     private ReservaRepository reservaRepository;
     private ServicioRepository servicioRepository;
-    private ProductoService productoService;
+    private ProductService productService;
 
     @Override
     public List<Reserva> getReservas() {
@@ -37,19 +37,19 @@ public class ReservaServiceImpl implements ReservaService {
     @Override
     public Reserva createReserva(CreateReservaRequest createReservaRequest) {
         validateDates(createReservaRequest);
-        validateCantidadProductos(createReservaRequest);
+        validateCantidadProducts(createReservaRequest);
 
         Reserva reserva = createReservaRequestToReserva(createReservaRequest);
 
         return reservaRepository.save(reserva);
     }
 
-    private void validateCantidadProductos(CreateReservaRequest createReservaRequest) {
-        createReservaRequest.getProductos().forEach(p -> {
-            Producto producto = productoService.getProducto(p.getId());
-            if(producto.getCantidad() < p.getCantidad()) {
-                throw new JgBadRequestException("El producto " + producto.getNombre() + " tiene una disponibilidad de "
-                        + producto.getCantidad() + " y se esta solictando una cantidad de " + p.getCantidad());
+    private void validateCantidadProducts(CreateReservaRequest createReservaRequest) {
+        createReservaRequest.getProducts().forEach(p -> {
+            Product product = productService.getProduct(p.getId());
+            if(product.getAmount() < p.getCantidad()) {
+                throw new JgBadRequestException("Product " + product.getName() + " has a availability of "
+                        + product.getAmount() + " and is being requested an amount of " + p.getCantidad());
             }
         });
     }

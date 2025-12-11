@@ -38,6 +38,6 @@ public class Reserva {
     )
     private List<Servicio> servicios;
     @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ReservaProducto> reservaProductos;
+    private List<ReservaProduct> reservaProducts;
 
 }
